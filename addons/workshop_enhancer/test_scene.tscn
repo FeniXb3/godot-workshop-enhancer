@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1kj3hrq0dh16"]
+
+[ext_resource type="PackedScene" uid="uid://fgv4p33qdik1" path="res://addons/workshop_enhancer/main_panel.tscn" id="1_sgk5x"]
+[ext_resource type="PackedScene" uid="uid://bojkt0j38ycqk" path="res://addons/workshop_enhancer/cursors_layer.tscn" id="2_ve0aw"]
+
+[node name="TestScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" parent="." instance=ExtResource("1_sgk5x")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CursorsLayer" parent="." instance=ExtResource("2_ve0aw")]

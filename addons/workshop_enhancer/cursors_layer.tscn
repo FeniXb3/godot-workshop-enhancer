@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bojkt0j38ycqk"]
+
+[ext_resource type="Script" path="res://addons/workshop_enhancer/cursors_layer.gd" id="1_savho"]
+[ext_resource type="PackedScene" uid="uid://dug7ean77goga" path="res://addons/workshop_enhancer/cursors_spawner.tscn" id="2_pqx17"]
+
+[node name="CursorsLayer" type="CanvasLayer" node_paths=PackedStringArray("cursors_container", "cursor_spawner")]
+layer = 128
+script = ExtResource("1_savho")
+cursors_container = NodePath("CursorsContainer")
+cursor_spawner = NodePath("CursorsSpawner")
+
+[node name="CursorsSpawner" parent="." instance=ExtResource("2_pqx17")]
+
+[node name="CursorsContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
