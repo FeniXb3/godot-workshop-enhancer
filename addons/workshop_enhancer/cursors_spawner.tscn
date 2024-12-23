@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dug7ean77goga"]
-
-[ext_resource type="Script" path="res://addons/workshop_enhancer/cursors_spawner.gd" id="1_6vi85"]
-
-[node name="CursorsSpawner" type="MultiplayerSpawner"]
-_spawnable_scenes = PackedStringArray("res://addons/workshop_enhancer/cursor.tscn")
-spawn_path = NodePath("../CursorsContainer")
-script = ExtResource("1_6vi85")

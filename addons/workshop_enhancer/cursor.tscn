@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7mnqeqiff3pg"]
 
 [ext_resource type="Texture2D" uid="uid://bmlgs3a02t1el" path="res://icon.svg" id="1_kiqi6"]
-[ext_resource type="Script" path="res://addons/workshop_enhancer/cursor.gd" id="2_hjd5v"]
+[ext_resource type="Script" uid="uid://d3ramvfw5pq5d" path="res://addons/workshop_enhancer/cursor.gd" id="2_hjd5v"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yv4wj"]
 properties/0/path = NodePath(".:position")
@@ -9,7 +9,7 @@ properties/0/spawn = true
 properties/0/replication_mode = 1
 
 [node name="Cursor" type="TextureRect" node_paths=PackedStringArray("position_synchronizer")]
-modulate = Color(1, 1, 1, 0.227451)
+modulate = Color(0, 1, 1, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

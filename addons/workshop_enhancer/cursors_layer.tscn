@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bojkt0j38ycqk"]
+[gd_scene load_steps=2 format=3 uid="uid://bojkt0j38ycqk"]
 
-[ext_resource type="Script" path="res://addons/workshop_enhancer/cursors_layer.gd" id="1_savho"]
-[ext_resource type="PackedScene" uid="uid://dug7ean77goga" path="res://addons/workshop_enhancer/cursors_spawner.tscn" id="2_pqx17"]
+[ext_resource type="Script" uid="uid://ce8bhosdabf23" path="res://addons/workshop_enhancer/cursors_layer.gd" id="1_savho"]
 
 [node name="CursorsLayer" type="CanvasLayer" node_paths=PackedStringArray("cursors_container", "cursor_spawner")]
 layer = 128
@@ -9,7 +8,9 @@ script = ExtResource("1_savho")
 cursors_container = NodePath("CursorsContainer")
 cursor_spawner = NodePath("CursorsSpawner")
 
-[node name="CursorsSpawner" parent="." instance=ExtResource("2_pqx17")]
+[node name="CursorsSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://b7mnqeqiff3pg")
+spawn_path = NodePath("../CursorsContainer")
 
 [node name="CursorsContainer" type="Control" parent="."]
 layout_mode = 3
