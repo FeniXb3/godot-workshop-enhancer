@@ -3,6 +3,7 @@ extends TextureRect
 
 @export var position_synchronizer: MultiplayerSynchronizer
 @export var click_event: InputEventMouseButton
+@export var relative_position: Vector2
 
 func _enter_tree() -> void:
 	var cstring := "#%s55" % name.substr(0, 6).rpad(6, "f")
@@ -25,9 +26,15 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseMotion:
 		position = event.position
+		var screen_size: Vector2 = DisplayServer.window_get_size()
+		
+		relative_position = event.position/screen_size
+		print(relative_position)
 	elif event is InputEventMouseButton:
 		click_event = event
 		
+func _process(delta: float) -> void:
+	position = relative_position * (DisplayServer.window_get_size() as Vector2)
 #func _process(delta: float) -> void:
 	#print(get_multiplayer_authority())
 	#if get_multiplayer_authority() != multiplayer.get_unique_id():
