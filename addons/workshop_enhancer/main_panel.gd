@@ -13,11 +13,30 @@ var default_multiplayer_peer: OfflineMultiplayerPeer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Ready")
+	var ip_address: String = ""
+
+	if OS.has_feature("windows"):
+		if OS.has_environment("COMPUTERNAME"):
+			ip_address =  IP.resolve_hostname(str(OS.get_environment("COMPUTERNAME")),1)
+	elif OS.has_feature("x11"):
+		if OS.has_environment("HOSTNAME"):
+			ip_address =  IP.resolve_hostname(str(OS.get_environment("HOSTNAME")),1)
+	elif OS.has_feature("OSX"):
+		if OS.has_environment("HOSTNAME"):
+			ip_address =  IP.resolve_hostname(str(OS.get_environment("HOSTNAME")),1)
+	
+	if not ip_address.is_empty():
+		ipLineEdit.text = ip_address
+	
 	default_multiplayer_peer = multiplayer.multiplayer_peer as OfflineMultiplayerPeer
 	if default_multiplayer_peer == null:
 		print("Default multiplayer peer was null, setting to new OfflineMultiplayerPeer")
 		default_multiplayer_peer = OfflineMultiplayerPeer.new()
 		multiplayer.multiplayer_peer = default_multiplayer_peer
+	
+	if OS.has_feature("dedicated_server"):
+		portLineEdit.text = "1338"
+		_on_host_button_pressed()
 
 func _on_host_button_pressed() -> void:
 	if not _is_offline():
